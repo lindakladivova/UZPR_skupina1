@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "PARCELY_KN_L",
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "53286172010", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.708037002047345, 49.506066245309995 ], [ 16.708048519087917, 49.506064604230879 ] ] } },
+{ "type": "Feature", "properties": { "ID": "2", "ID_2": "70678637010", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.713464680200872, 49.498337700718984 ], [ 16.713489205754591, 49.498361740826439 ] ] } },
+{ "type": "Feature", "properties": { "ID": "3", "ID_2": "51630099010", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.72037973467005, 49.497476930260547 ], [ 16.720373776289165, 49.497486192585804 ] ] } },
+{ "type": "Feature", "properties": { "ID": "4", "ID_2": "51630097010", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.71891411197889, 49.499256206396687 ], [ 16.718923384511616, 49.499252147814971 ] ] } },
+{ "type": "Feature", "properties": { "ID": "5", "ID_2": "1250931731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.709823267609387, 49.497028430739327 ], [ 16.709823115684237, 49.497028510610001 ] ] } },
+{ "type": "Feature", "properties": { "ID": "6", "ID_2": "1094727731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.714601669902077, 49.494427096421923 ], [ 16.714593625792872, 49.494421111800477 ] ] } },
+{ "type": "Feature", "properties": { "ID": "7", "ID_2": "1095294731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.721378552973, 49.505173762885306 ], [ 16.721344277267761, 49.505182959220647 ] ] } },
+{ "type": "Feature", "properties": { "ID": "8", "ID_2": "1094516731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.718724590653746, 49.499188338959101 ], [ 16.718737932860513, 49.499172987975506 ] ] } },
+{ "type": "Feature", "properties": { "ID": "9", "ID_2": "1095112731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.712992563094115, 49.502584323210904 ], [ 16.71295811020671, 49.502578493362613 ] ] } },
+{ "type": "Feature", "properties": { "ID": "10", "ID_2": "1094577731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.712534379234484, 49.495711086659838 ], [ 16.712530705856874, 49.49570893237739 ] ] } },
+{ "type": "Feature", "properties": { "ID": "11", "ID_2": "1095411731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.734829959083481, 49.496143511200962 ], [ 16.734815889549786, 49.496143802294647 ] ] } },
+{ "type": "Feature", "properties": { "ID": "12", "ID_2": "1409140731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.709492753147785, 49.495854455983917 ], [ 16.709498996601887, 49.495851091891275 ] ] } },
+{ "type": "Feature", "properties": { "ID": "13", "ID_2": "1242405731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.715454617797565, 49.483631488701818 ], [ 16.715454553734478, 49.483631032100156 ] ] } },
+{ "type": "Feature", "properties": { "ID": "14", "ID_2": "1094748731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.708287973963774, 49.496659095157355 ], [ 16.708283607359839, 49.496653546599973 ] ] } },
+{ "type": "Feature", "properties": { "ID": "15", "ID_2": "1261277731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.715094646909687, 49.483571662580552 ], [ 16.715094524306384, 49.483571563631806 ] ] } },
+{ "type": "Feature", "properties": { "ID": "16", "ID_2": "1094860731", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.715046006922528, 49.484187639392189 ], [ 16.715016015221011, 49.484186007703876 ] ] } },
+{ "type": "Feature", "properties": { "ID": "17", "ID_2": "37233590010", "TYPPPD_KOD": "1032", "KATUZE_KOD": 785598 }, "geometry": { "type": "LineString", "coordinates": [ [ 16.715011333103362, 49.494042289821579 ], [ 16.715010436297369, 49.494042679673477 ] ] } }
+]
+}

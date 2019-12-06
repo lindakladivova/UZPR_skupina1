@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "DALSI_PRVKY_MAPY_T",
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "190438731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Vzadu", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.695716385320267, 49.485397866725926 ] } },
+{ "type": "Feature", "properties": { "ID": "2", "ID_2": "190444731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Široké", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.701090690296752, 49.494554786034826 ] } },
+{ "type": "Feature", "properties": { "ID": "3", "ID_2": "190432731", "TYPPPD_KOD": "1004", "KATUZE_KOD": 608475, "TEXT_KM": "Hrádkov", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.701893123026078, 49.486702185518268 ] } },
+{ "type": "Feature", "properties": { "ID": "4", "ID_2": "190442731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Na stráni", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.7032623325846, 49.49543955388549 ] } },
+{ "type": "Feature", "properties": { "ID": "5", "ID_2": "190440731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Dlouhé", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.705094645619322, 49.492078440666575 ] } },
+{ "type": "Feature", "properties": { "ID": "6", "ID_2": "190434731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Roviny", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.708396288670233, 49.483548626711496 ] } },
+{ "type": "Feature", "properties": { "ID": "7", "ID_2": "190436731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Boøí", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.696254458903294, 49.481836845818954 ] } },
+{ "type": "Feature", "properties": { "ID": "8", "ID_2": "190174731", "TYPPPD_KOD": "1015", "KATUZE_KOD": 608475, "TEXT_KM": "Bìlá", "ROTACE": 58, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.69265340572494, 49.489049242892513 ] } },
+{ "type": "Feature", "properties": { "ID": "9", "ID_2": "91754147010", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Hrádkov", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.701735163770767, 49.482124834159691 ] } },
+{ "type": "Feature", "properties": { "ID": "10", "ID_2": "91754148010", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Opály", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.699180635557404, 49.489429552832334 ] } },
+{ "type": "Feature", "properties": { "ID": "11", "ID_2": "91754149010", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608475, "TEXT_KM": "Pod Boøím", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.689753536359536, 49.484652332678579 ] } }
+]
+}

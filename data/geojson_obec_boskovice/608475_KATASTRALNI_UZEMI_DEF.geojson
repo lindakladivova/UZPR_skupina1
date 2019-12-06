@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"name": "KATASTRALNI_UZEMI_DEF",
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "608475", "TYPPPD_KOD": "9100104", "KOD": 608475, "TEXT_KM": "Hrádkov" }, "geometry": { "type": "Point", "coordinates": [ 16.700730185285547, 49.485161495834255, 0.0 ] } }
+]
+}

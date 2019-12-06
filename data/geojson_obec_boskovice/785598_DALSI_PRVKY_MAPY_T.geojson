@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "DALSI_PRVKY_MAPY_T",
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "193160731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 785598, "TEXT_KM": "Za humny", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.712204441084967, 49.499514897361173 ] } },
+{ "type": "Feature", "properties": { "ID": "2", "ID_2": "193158731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 785598, "TEXT_KM": "Knìží hora", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.709698245703262, 49.503302039607057 ] } },
+{ "type": "Feature", "properties": { "ID": "3", "ID_2": "193172731", "TYPPPD_KOD": "1004", "KATUZE_KOD": 785598, "TEXT_KM": "Vratíkov", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.70805035231491, 49.495874998329569 ] } },
+{ "type": "Feature", "properties": { "ID": "4", "ID_2": "90101355010", "TYPPPD_KOD": "1009", "KATUZE_KOD": 785598, "TEXT_KM": "V zábraní", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.71158392508524, 49.493647160906733 ] } },
+{ "type": "Feature", "properties": { "ID": "5", "ID_2": "90101358010", "TYPPPD_KOD": "1009", "KATUZE_KOD": 785598, "TEXT_KM": "Padìlky", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.707448633866878, 49.499789693815025 ] } },
+{ "type": "Feature", "properties": { "ID": "6", "ID_2": "90101354010", "TYPPPD_KOD": "1015", "KATUZE_KOD": 785598, "TEXT_KM": "Okrouhlý potok", "ROTACE": 84, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.723218986303173, 49.497228980320926 ] } },
+{ "type": "Feature", "properties": { "ID": "7", "ID_2": "90101356010", "TYPPPD_KOD": "1009", "KATUZE_KOD": 785598, "TEXT_KM": "Dubová", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.723396236228677, 49.49835310180206 ] } },
+{ "type": "Feature", "properties": { "ID": "8", "ID_2": "90101353010", "TYPPPD_KOD": "1015", "KATUZE_KOD": 785598, "TEXT_KM": "Valchovka", "ROTACE": 90, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.716124349133977, 49.482828246761741 ] } },
+{ "type": "Feature", "properties": { "ID": "9", "ID_2": "90101357010", "TYPPPD_KOD": "1009", "KATUZE_KOD": 785598, "TEXT_KM": "Na rovinách", "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.71857493727061, 49.498033655151012 ] } }
+]
+}

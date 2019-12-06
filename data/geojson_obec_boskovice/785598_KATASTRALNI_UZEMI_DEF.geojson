@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"name": "KATASTRALNI_UZEMI_DEF",
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "785598", "TYPPPD_KOD": "9100104", "KOD": 785598, "TEXT_KM": "Vratíkov" }, "geometry": { "type": "Point", "coordinates": [ 16.715955660331787, 49.497369959605933, 0.0 ] } }
+]
+}

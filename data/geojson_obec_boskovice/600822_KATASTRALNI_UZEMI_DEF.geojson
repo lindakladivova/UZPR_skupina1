@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"name": "KATASTRALNI_UZEMI_DEF",
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "600822", "TYPPPD_KOD": "9100104", "KOD": 600822, "TEXT_KM": "Baèov" }, "geometry": { "type": "Point", "coordinates": [ 16.642810082801365, 49.526289316857842, 0.0 ] } }
+]
+}

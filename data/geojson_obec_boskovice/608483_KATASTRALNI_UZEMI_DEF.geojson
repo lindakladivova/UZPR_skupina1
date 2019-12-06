@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"name": "KATASTRALNI_UZEMI_DEF",
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "608483", "TYPPPD_KOD": "9100104", "KOD": 608483, "TEXT_KM": "Mladkov u Boskovic" }, "geometry": { "type": "Point", "coordinates": [ 16.623381325953087, 49.486595910720517, 0.0 ] } }
+]
+}

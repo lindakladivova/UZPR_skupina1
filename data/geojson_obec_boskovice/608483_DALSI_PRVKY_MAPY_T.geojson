@@ -1,0 +1,21 @@
+{
+"type": "FeatureCollection",
+"name": "DALSI_PRVKY_MAPY_T",
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "313938731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Na padìlkách", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.630442869854775, 49.487121974244879 ] } },
+{ "type": "Feature", "properties": { "ID": "2", "ID_2": "313932731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Horní újezdy", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.620787099071077, 49.491385725714665 ] } },
+{ "type": "Feature", "properties": { "ID": "3", "ID_2": "313934731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Na kopaninách", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.625788631305497, 49.495513116317753 ] } },
+{ "type": "Feature", "properties": { "ID": "4", "ID_2": "313946731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Rovná", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.619561662858857, 49.48433306710033 ] } },
+{ "type": "Feature", "properties": { "ID": "5", "ID_2": "313952731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "V hlinkách", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.630834493237053, 49.488529329591771 ] } },
+{ "type": "Feature", "properties": { "ID": "6", "ID_2": "313956731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Boøí", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.61807788189925, 49.479433541248781 ] } },
+{ "type": "Feature", "properties": { "ID": "7", "ID_2": "313930731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Dolní újezdy", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.619272534035964, 49.491654409656796 ] } },
+{ "type": "Feature", "properties": { "ID": "8", "ID_2": "313954731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Na dolní", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.621956382115275, 49.480800250832814 ] } },
+{ "type": "Feature", "properties": { "ID": "9", "ID_2": "313940731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Pod seèí", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.624482487470402, 49.48687940763012 ] } },
+{ "type": "Feature", "properties": { "ID": "10", "ID_2": "313944731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Laškovec", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.619897856401487, 49.486402424223137 ] } },
+{ "type": "Feature", "properties": { "ID": "11", "ID_2": "313948731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "U obrázku", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.624553719834864, 49.483029597957987 ] } },
+{ "type": "Feature", "properties": { "ID": "12", "ID_2": "313950731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Na køibì", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.632389197601963, 49.487562768838679 ] } },
+{ "type": "Feature", "properties": { "ID": "13", "ID_2": "313958731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Na hranièném", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.623339606124706, 49.476968850865255 ] } },
+{ "type": "Feature", "properties": { "ID": "14", "ID_2": "313928731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Na skalkách", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.628370689069708, 49.49247547217977 ] } },
+{ "type": "Feature", "properties": { "ID": "15", "ID_2": "313942731", "TYPPPD_KOD": "1009", "KATUZE_KOD": 608483, "TEXT_KM": "Mezicestí", "ROTACE": 0, "VZ_BOD": "BC", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 16.624574053515499, 49.488525823523688 ] } }
+]
+}
