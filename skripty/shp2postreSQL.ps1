@@ -1,10 +1,11 @@
-﻿# Datum: 6.12.2019
-# Ucel: Slouží pro export shapefilů KM do POSTGISu
+﻿# Datum: 20.11.2019
+# Ucel: Slouží pro import shapefilů KM do POSTGISu
 # Copyright: (C) 2019 Linda Kladivová
 # Spouštět jako správce!!!
 
 # Nastavení vstupního a výstupního adresáře
 $input_dir = 'C:\Users\kladivoval\Documents\UZPR_data\shp_obec_boskovice'
+$sour_system = "$PSScriptRoot\sour_system_krovak.prj"
 
 # Názvy vrstev, typy prostorových prvků a název budoucí tabulky v databázi
 $items = @(
@@ -48,9 +49,11 @@ foreach ($ku in $seznam_ku) {
 
         $dir = "$input_dir\$ku_name\$nazev"
 
+        $env:PGCLIENTENCODING="LATIN1"
+
         if (Test-Path $dir) {
 
-             ogr2ogr -f PostgreSQL -nln kladivova.$tabulka -a_srs 'EPSG:5514' -nlt $typ -lco precision=NO "PG:dbname=uzpr host=server user=kladivova password=linda" $dir
+             ogr2ogr -append -f PostgreSQL PG:"dbname='pgis_uzpr' user='uzpr20_a' password='a.uzpr20' host= 'geo102.fsv.cvut.cz'" -a_srs $sour_system $dir -nlt $typ -lco GEOMETRY_NAME=geom -lco SPATIAL_INDEX=GIST -nln "uzpr20_a.$tabulka"
         }    
 
     }
