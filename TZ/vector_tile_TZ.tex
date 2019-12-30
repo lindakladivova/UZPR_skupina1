@@ -36,7 +36,7 @@
 \Large \textbf{155UZPR Úvod do zpracování prostorových dat}
 \vspace{1cm}
 
-\LARGE  \textbf{ Vektorové dlaždice}
+\LARGE  \textbf{ Nasazení vektorových dlaždic při tvorbě katastrální mapy}
 \vspace{3cm}
 
 \Large Bc. Linda Kladivová, Bc. Jana Špererová, Bc. Lukáš Kettner, Bc. Martin Hulín \\ 20.12.2019
@@ -77,17 +77,24 @@ V súčasnom stave mapový server Marushka slúži k uloženiu, poskytovaniu a a
 
 
 
-
-
 %------------------------------------------------------------------------
 \clearpage
-\section{Vstupné data, formát a ich popis}
+\section{Popis a formát vstupních dat}
+Našimi počátečními vstupními daty jsou data katastrální mapy ve formátu shapefile. Pro automatické stažení dat po katastrálních územích je na stránkách \href{http://services.cuzk.cz/shp/ku/QGIS-plugin/QGIS_verze-3.x/}{Services ČÚZK} k dispozici zásuvný modul pro hromadné stahování dat KM ve formátu .shp. Zadáním příslušného textového souboru s připraveným seznamem katastrálních území dojde ke stažení dat a jejich rozčlenění po katastrálních území. Shapefily katastrální mapy jsou přibližným obrazem publikační databáze na ČÚZK. Vzhledem k tomu, že v publikační databázi může být v jedné tabulce i vícero sloupců s různými typy geometrií, neodpovídají názvy shapefilů názvům tabulkám v publikační databázi. Aby bylo zřejmé, o jaký konkrétní prostorový typ dat se jedná, jsou jednotlivé shapefily pojmenovány podle svých typů. Jednotlivé typy jsou uvedeny na příkladu vrstvy PARCELY\_KN: 
 
+\begin{itemize}
+\item PARCELY\_KN\_B.shp $\rightarrow$ body parcel (multipoint)
+\item PARCELY\_KN\_DEF.shp $\rightarrow$ definiční body parcel (multipoint)
+\item PARCELY\_KN\_L.shp $\rightarrow$ linie parcel (multilinestring)
+\item PARCELY\_KN\_P.shp $\rightarrow$ polygon parcel (multipolygon)
+\item PARCELY\_KN\_T.shp $\rightarrow$ text (multipoint)
+\end{itemize}
 
+Shapefile je datový formát pro ukládání vektorových prostorových dat, který se skládá s několika povinných a doplňkových souborů. Hlavní soubor .shp obsahuje seznam lomových bodů dané geometrie. Databázový soubor .dbf obsahuje popisné atributy jednotlivých geometrí, které v tomto případě kopírují popisné informace v tabulkách v publikační databázi. Tyto dva jmenované soubory jsou propojeny pomocí dalšího posledního povinného souboru .shx. U všech vrstev je obsažen ještě soubor .prj, který je ve všech případech stejný. Obsahuje definici souřadnicového systému a projekce (EPSG kód 5514). 
 
 \clearpage 
 %------------------------------------------------------------------------
-\section{Výstupné data, formát a ich popis}
+\section{Výstupní data, formát a popis}
 
 
 %------------------------------------------------------------------------
