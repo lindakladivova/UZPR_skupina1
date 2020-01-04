@@ -9,6 +9,8 @@
 %\addbibresource{literatura.bib}
 \usepackage{cite}
 \usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
 %\usepackage{float} %upevneni tabulky
 %\restylefloat{table}
 \setcounter{secnumdepth}{3}
@@ -75,12 +77,14 @@ V súčasnom stave mapový server Marushka slúži k uloženiu, poskytovaniu a a
  \newline Nad súbormi WKB je možné vybudovať viacúrovňový priestorový index reprezentovaný štruktúrou R-Tree. Tento index výrazne zefektívni priestorový prístup k jednotlivým geometrickým elemoentom. Podrobnejšie informácie je možné nájsť na oficiálne stránke  \href{http://geovap.q2.cz/marushka/cz/produkty-a-sluzby/categoryId/3/souborove-vektorove-formaty-/popis/architektura/2#item15}{ serveru Marushka}.
  \newline Využitie vektorových dlaždíc na mapovom serveri Marushka by viedlo k zjednodušeniu aktualizácie katastrálnej mapy. Aktualizovala by sa len základná dlaždica, v ktorej sa prvok nachádza. To by vylúčilo nutnosť aktualizovať celé katastrálne územie, tým by sa výrazne znížila časová náročnosť pre aktualizáciu dát a aktualne dáta na mapovom serveri Marushka by mali užívatelia k dispozícii takmer ihneď po úprave.
 
-
+\subsection{Možnosti generování vektorových dlaždic}
+\textcolor{red}{
+Zaměřit se ještě na generování přímo z databáze Oracle. Probrat možnosti MapServeru, GeoServeru. Chtěli bychom vytvořit vektorové dlaždice nejlépe přímo z databáze Oracle z jejího prostorových sloupečků typu SDO\_GEOMETRY. Koukala jsem, že u PostGISU existuje nějaká funkce ST\_AsMVT, co jsou přesně ty dlaždice MTV? A daly by se zadarmo zrealizovat i třeba pro Oracle? Co ta funkce tippecanoe, v čem jsou její výhody. Zkusit najít třeba i nějaké příklady, kde jaký přístup byl použit. Prostě zkusit prodiskutovat jaké máme možnosti, stejně si pak asi vybereme tu tippecanoe, ale bylo by super mít nějaký průřez. :-) }
 
 %------------------------------------------------------------------------
 \clearpage
 \section{Popis a formát vstupních dat}
-Našimi počátečními vstupními daty jsou data katastrální mapy ve formátu shapefile. Pro automatické stažení dat po katastrálních územích je na stránkách \href{http://services.cuzk.cz/shp/ku/QGIS-plugin/QGIS_verze-3.x/}{Services ČÚZK} k dispozici zásuvný modul pro hromadné stahování dat KM ve formátu .shp. Zadáním příslušného textového souboru s připraveným seznamem katastrálních území dojde ke stažení dat a jejich rozčlenění po katastrálních území. Shapefily katastrální mapy jsou přibližným obrazem publikační databáze na ČÚZK. Vzhledem k tomu, že v publikační databázi může být v jedné tabulce i vícero sloupců s různými typy geometrií, neodpovídají názvy shapefilů názvům tabulkám v publikační databázi. Aby bylo zřejmé, o jaký konkrétní prostorový typ dat se jedná, jsou jednotlivé shapefily pojmenovány podle svých typů. Jednotlivé typy jsou uvedeny na příkladu vrstvy PARCELY\_KN: 
+Našimi počátečními vstupními daty jsou data katastrální mapy ve formátu shapefile rozčleněné po katastrálních územích. Každé k. ú. obsahuje celkem 84 datových položek (tedy 21 shapefilů, jelikož shp je složen ze čtyř souborů). Jedná se o skupiny: bodová pole, budovy, další prvky mapy, hranice parcel, katastrální území, parcely KN, orientační prvky mapy a věcná břemena. Shapefily katastrální mapy jsou přibližným obrazem publikační databáze na ČÚZK. Vzhledem k tomu, že v publikační databázi může být v jedné tabulce i vícero sloupců s různými typy geometrií, neodpovídají názvy shapefilů názvům tabulkám v publikační databázi. Aby bylo zřejmé, o jaký konkrétní prostorový typ dat se jedná, jsou jednotlivé shapefily pojmenovány podle svých typů. Jednotlivé typy jsou uvedeny na příkladu vrstvy PARCELY\_KN: 
 
 \begin{itemize}
 \item PARCELY\_KN\_B.shp $\rightarrow$ body parcel (multipoint)
@@ -90,16 +94,58 @@ Našimi počátečními vstupními daty jsou data katastrální mapy ve formátu
 \item PARCELY\_KN\_T.shp $\rightarrow$ text (multipoint)
 \end{itemize}
 
-Shapefile je datový formát pro ukládání vektorových prostorových dat, který se skládá s několika povinných a doplňkových souborů. Hlavní soubor .shp obsahuje seznam lomových bodů dané geometrie. Databázový soubor .dbf obsahuje popisné atributy jednotlivých geometrí, které v tomto případě kopírují popisné informace v tabulkách v publikační databázi. Tyto dva jmenované soubory jsou propojeny pomocí dalšího posledního povinného souboru .shx. U všech vrstev je obsažen ještě soubor .prj, který je ve všech případech stejný. Obsahuje definici souřadnicového systému a projekce (EPSG kód 5514). 
+Shapefile je datový formát pro ukládání vektorových prostorových dat, který se skládá s několika povinných a doplňkových souborů. Hlavní soubor .shp obsahuje seznam lomových bodů dané geometrie. Databázový soubor .dbf obsahuje popisné atributy jednotlivých geometrí, které v tomto případě kopírují popisné informace v tabulkách v publikační databázi. Tyto dva jmenované soubory jsou propojeny pomocí dalšího posledního povinného souboru .shx. U všech vrstev je obsažen ještě soubor .prj, který je ve všech případech stejný. Obsahuje definici souřadnicového systému a projekce (EPSG kód 5514). \\
+\indent Mezikrokem této práce je pokus o jednoduché napodobení publikační databáze ČÚZK, jelikož v reálném příkladě počáteční data pro generování vektorových dlaždic nemají charakter shapefilů, ale prostorových sloupců typu SDO\_GEOMETRY v Oracle databázi s indexem typu Rtree  (stromová datová struktura používaná pro prostorová data, která dělí a seskupuje blízká data do MER - minimal enclosing box). Vzhledem k tomu, že použití nadstavby Oracle Spatial není bezplatně možné, byla zvolena varianta řešení v databázi PostGIS.
+
+
 
 \clearpage 
 %------------------------------------------------------------------------
-\section{Výstupní data, formát a popis}
+\section{Popis a formát výstupních dat}
 
+\textcolor{red}{
+Jana\\
+podrobný popis formátu geojson a vektorových dlaždic}
 
 %------------------------------------------------------------------------
 \clearpage 
-\section{Pracovný postup}
+\section{Pracovní postup}
+
+\subsection{Stažení shapefilů katastrální mapy} 
+Pro automatické stažení dat po katastrálních územích je na stránkách \href{http://services.cuzk.cz/shp/ku/QGIS-plugin/QGIS_verze-3.x/}{Services ČÚZK} k dispozici zásuvný modul pro hromadné stahování dat KM ve formátu .shp. V Oracle databázi ISKN byl nejprve proveden jednoduchý výběr několika různě velký skupin k. ú. a jejich export do textových souborů. Po zadání připraveného seznamu byly staženy shapefily rozčleněné do složek podle kódu k. ú. Nakonec byly staženy shapefily pro tři různě velké skupiny dat:  pro obec Boskovice (52 MB), pro okres Benešov (1 GB, 271 k. ú.) a pro celý liberecký kraj (přes 2 GB, 508 k. ú.). Nejprve však bylo pracováno pouze s nejmenší množinou dat, s pěti katastrálními územími 600822, 608327, 608475, 608483, 785598 spadajícími pod obec Boskovice. 
+
+\subsection{Import shapefilů do PostGIS databáze}
+
+Import shapefilů do PostGISu byl naprogramován automatizovaně v prostředí Windows Powershell (zkráceně PS). Jelikož jsou shapefily různých datových typů a i jejich import musí proběhnout do různých tabulek v databázi, byl sestaven multidimenzionální řetězec. Všechny složky jsou pak procházeny pomocí for cyklu a data nahrány do databáze přes utilitu \textbf{ogr2ogr}. \\
+\indent Při importu bylo řešeno několik problémů. Aby bylo možné ogr2ogr volat relativně, bylo nutné do proměnných prostředí PATH doplnit cestu ke zdrojovému adresáři softwaru QGIS a cestu ke zrojovému adresáři knihovny PROJ. Důležité je zdůraznit spuštění PS jako administrátor, jinak prostředí systémové proměnné ignoruje. \\
+\indent Další problém, který záhy nastal, byl problém s kódováním shapefilů. V případě těchto dat bylo nutné použít pro import do databáze jiné kódování, než je UTF8 a to LATIN1. Toto kódování bylo nastaveno přímo v PS do proměnné prostředí PGCLIENTENCODING. \\
+\indent Do tabulek bylo přidáváno a nad každou tabulkou byl vytvořen prostorový index. Byl zaznamenám případ, kdy nějaký řádek v datech není datového typu, který má reprezentovat, i přesto že ostatní řádky v shapefilu tento datový typ splňují. Vzhledem k tomu, že to bylo zaznamenáno pouze u pár případů a v této práci nejde ani tak o kompetnost dat, jako spíš o jejich strukturu, takové případy nebyly dále zkoumány. Příkaz ogr2ogr pro import dat byl vytvořen s následující strukturou (proměnné jsou označeny \$):
+
+\begin{lstlisting}
+ogr2ogr -append -f PostgreSQL PG:"dbname='pgis_uzpr' 
+user='uzpr20_a'  password='a.uzpr20' 
+host= 'geo102.fsv.cvut.cz'" -a_srs $sour_system $dir 
+-nlt $typ -lco GEOMETRY_NAME=geom 
+-lco SPATIAL_INDEX=GIST -nln "uzpr20_a.$tabulka"
+\end{lstlisting}
+
+V databázi bylo tedy celkem vytvořeno 21 tabulek (podle názvů shapefilů), do kterých byla naimportována data ze všech katastrálních území. Data je možné si zobrazit v QGISu.\\
+
+Obrázky dat v QGISu
+
+\subsection{Export dat z PostGIS do formátu geojson}
+
+Tato část už byla naprogramována v prostředí LINUX, jelikož pro tvorbu vektorových dlaždic byla použita utilita \textbf{tippecanoe}, jež je k dispozici pouze na tomto operačním systému.
+
+
+\subsection{Tvorba vektorových dlaždic}
+Cílem této práce je tvorba vektorových dlaždic s různým zadáním parametrů, tak aby bylo zřejmé, jak funguje utilita \textbf{tippecanoe}, a jaké nastavení by bylo vhodné použít v případě dat katastrální mapy.
+
+\subsection{Vybalení vektorových dlaždic}
+
+\subsection{Vykreslení vektorových dlaždic}
+
+
 
 
 

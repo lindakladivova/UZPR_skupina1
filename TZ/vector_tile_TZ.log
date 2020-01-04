@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.12.29)  30 DEC 2019 12:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2019.12.29)  4 JAN 2020 17:15
 entering extended mode
 **./vector_tile_TZ.tex
 (vector_tile_TZ.tex
@@ -312,28 +312,76 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count102
 Package caption Info: hyperref package is loaded.
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 22.
+("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\list
+ings.sty"
+\lst@mode=\count103
+\lst@gtempboxa=\box27
+\lst@token=\toks17
+\lst@length=\count104
+\lst@currlwidth=\dimen117
+\lst@column=\count105
+\lst@pos=\count106
+\lst@lostspace=\dimen118
+\lst@width=\dimen119
+\lst@newlines=\count107
+\lst@lineno=\count108
+\lst@maxwidth=\dimen120
+
+("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstm
+isc.sty"
+File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+\c@lstnumber=\count109
+\lst@skipnumbers=\count110
+\lst@framebox=\box28
+)
+("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\list
+ings.cfg"
+File: listings.cfg 2019/09/10 1.8c listings configuration
+))
+Package: listings 2019/09/10 1.8c (Carsten Heinz)
+
+("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xcolor
+.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\
+color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
  (vector_tile_TZ.aux)
 \openout1 = `vector_tile_TZ.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-\AtBeginShipoutBox=\box27
-Package hyperref Info: Link coloring ON on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring ON on input line 27.
 
 ("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\name
 ref.sty"
@@ -347,11 +395,11 @@ Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 ttitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count103
+\c@section@level=\count111
 )
-LaTeX Info: Redefining \ref on input line 25.
-LaTeX Info: Redefining \pageref on input line 25.
-LaTeX Info: Redefining \nameref on input line 25.
+LaTeX Info: Redefining \ref on input line 27.
+LaTeX Info: Redefining \pageref on input line 27.
+LaTeX Info: Redefining \nameref on input line 27.
  (vector_tile_TZ.out) (vector_tile_TZ.out)
 \@outlinefile=\write3
 \openout3 = `vector_tile_TZ.out'.
@@ -360,17 +408,17 @@ LaTeX Info: Redefining \nameref on input line 25.
 ("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\s
 upp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
-\scratchdimen=\dimen117
-\scratchbox=\box28
-\nofMPsegments=\count105
-\nofMParguments=\count106
-\everyMPshowfont=\toks17
-\MPscratchCnt=\count107
-\MPscratchDim=\dimen118
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
-\everyMPtoPDFconversion=\toks18
+\scratchcounter=\count112
+\scratchdimen=\dimen121
+\scratchbox=\box30
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen122
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks19
 )
 ("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\
 epstopdf-base.sty"
@@ -388,11 +436,13 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 460.
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<./img/cvut.png, id=35, 10.35635pt x 7.80235pt>
+\c@lstlisting=\count118
+<./img/cvut.png, id=63, 10.35635pt x 7.80235pt>
 File: ./img/cvut.png Graphic file (type png)
 <use ./img/cvut.png>
-Package pdftex.def Info: ./img/cvut.png  used on input line 33.
+Package pdftex.def Info: ./img/cvut.png  used on input line 35.
 (pdftex.def)             Requested size: 199.16928pt x 150.234pt.
  [1
 
@@ -412,9 +462,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.48 \newpage
+l.50 \newpage
               %začne na nové stránce [1] [2]
-Overfull \hbox (12.87933pt too wide) in paragraph at lines 59--64
+Overfull \hbox (12.87933pt too wide) in paragraph at lines 61--66
 \OT1/cmr/m/n/12 K vyhodam vek-to-rovych dlazdc patr aj kar-to-gra-fick
 a ge-ne-ra-lizacia. V zavislosti
  []
@@ -422,34 +472,35 @@ a ge-ne-ra-lizacia. V zavislosti
 [3
 
 ]
-<./img/Marushka1.png, id=67, 582.175pt x 328.22626pt>
+<./img/Marushka1.png, id=102, 582.175pt x 328.22626pt>
 File: ./img/Marushka1.png Graphic file (type png)
 <use ./img/Marushka1.png>
-Package pdftex.def Info: ./img/Marushka1.png  used on input line 70.
+Package pdftex.def Info: ./img/Marushka1.png  used on input line 72.
 (pdftex.def)             Requested size: 341.43306pt x 192.4999pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 71.
+(caption)                particular \caption on input line 73.
 See the caption package documentation for explanation.
 
-[4 <./img/Marushka1.png>] [5]
-Overfull \hbox (7.95976pt too wide) in paragraph at lines 83--84
-\OT1/cmr/m/n/12 sha-pe-file. Pro au-to-ma-ticke stazen dat po ka-ta-straln
-ch uzemch je na strankach
+[4 <./img/Marushka1.png>]
+Overfull \hbox (23.05908pt too wide) in paragraph at lines 82--83
+\OT1/cmr/m/n/12 prmo z da-tabaze Oracle z jejho pros-to-rovych sloupeck
+u typu SDO[]GEOMETRY.
  []
 
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 8
-6.
+[5]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 9
+0.
 
 ("C:\Users\kladivoval\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.f
 d"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
 
-Overfull \hbox (3.69733pt too wide) in paragraph at lines 93--94
+Overfull \hbox (3.69733pt too wide) in paragraph at lines 97--99
 \OT1/cmr/m/n/12 prpadech stejny. Ob-sa-huje de-fi-nici souradnicoveho sys
 temu a pro-jekce (EPSG
  []
@@ -458,9 +509,20 @@ temu a pro-jekce (EPSG
 
 ] [7
 
-] [8
+]
+Overfull \hbox (1.43901pt too wide) in paragraph at lines 119--123
+\OT1/cmr/m/n/12 Import sha-pe-filu do Po-st-GISu byl na-prog-ra-movan au-to-m
+a-ti-zo-vane v prostred
+ []
 
-] [9
+[8
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+
+ []
+
+[9] [10
 
 ] (vector_tile_TZ.lof)
 \tf@lof=\write5
@@ -472,32 +534,32 @@ temu a pro-jekce (EPSG
 
 
 No file vector_tile_TZ.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
-[10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 177.
+[11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 177.
  (vector_tile_TZ.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 131.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 177.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 177.
 Package rerunfilecheck Info: File `vector_tile_TZ.out' has not changed.
-(rerunfilecheck)             Checksum: 1903280175A3D0FF4BB570CC48F62437;1484.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
+(rerunfilecheck)             Checksum: 6161F19E98114EA003E9A5CD99A51188;3178.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 177.
  ) 
 Here is how much of TeX's memory you used:
- 10505 strings out of 492484
- 156042 string characters out of 3119335
- 238350 words of memory out of 3000000
- 14706 multiletter control sequences out of 15000+200000
+ 12520 strings out of 492484
+ 182080 string characters out of 3119335
+ 264741 words of memory out of 3000000
+ 16689 multiletter control sequences out of 15000+200000
  8500 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,6n,42p,1102b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,6n,42p,1102b,1738s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/kladivoval/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/kladivoval/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kladivoval/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/kladivoval/AppD
 ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on vector_tile_TZ.pdf (11 pages, 269859 bytes).
+Output written on vector_tile_TZ.pdf (12 pages, 285826 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 176 PDF objects out of 1000 (max. 8388607)
+ 38 named destinations out of 1000 (max. 500000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
