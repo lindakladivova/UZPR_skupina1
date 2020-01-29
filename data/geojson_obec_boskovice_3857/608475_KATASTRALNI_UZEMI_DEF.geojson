@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "KATASTRALNI_UZEMI_DEF",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "608475", "TYPPPD_KOD": "9100104", "KOD": 608475, "TEXT_KM": "Hrádkov" }, "geometry": { "type": "Point", "coordinates": [ 1859116.780101842945442, 6357587.713248373009264, 44.134405602701008 ] } }
+]
+}

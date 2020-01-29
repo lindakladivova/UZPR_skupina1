@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "KATASTRALNI_UZEMI_DEF",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "600822", "TYPPPD_KOD": "9100104", "KOD": 600822, "TEXT_KM": "Baèov" }, "geometry": { "type": "Point", "coordinates": [ 1852669.143786609871313, 6364638.106612543575466, 44.148538471199572 ] } }
+]
+}

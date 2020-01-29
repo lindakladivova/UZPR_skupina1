@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "BODOVE_POLE_T",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "1420871731", "TYPPPD_KOD": "1016", "KATUZE_KOD": 600822, "TEXT_KM": "513", "PBPP_ID": "8399731", "PZBPP_ID": null, "ZBPP_ID": null, "ROTACE": 0, "VZ_BOD": "CR", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 1852580.641629584599286, 6364309.239641695283353 ] } },
+{ "type": "Feature", "properties": { "ID": "2", "ID_2": "1190904731", "TYPPPD_KOD": "1016", "KATUZE_KOD": 600822, "TEXT_KM": "16", "PBPP_ID": null, "PZBPP_ID": null, "ZBPP_ID": "36832020", "ROTACE": 0, "VZ_BOD": "CR", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 1853203.441109409788623, 6365314.748049259185791 ] } },
+{ "type": "Feature", "properties": { "ID": "3", "ID_2": "1190905731", "TYPPPD_KOD": "1016", "KATUZE_KOD": 600822, "TEXT_KM": "519", "PBPP_ID": "8903731", "PZBPP_ID": null, "ZBPP_ID": null, "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 1851950.967553780181333, 6364126.300841758027673 ] } },
+{ "type": "Feature", "properties": { "ID": "4", "ID_2": "1190002731", "TYPPPD_KOD": "1016", "KATUZE_KOD": 600822, "TEXT_KM": "506", "PBPP_ID": "10478731", "PZBPP_ID": null, "ZBPP_ID": null, "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 1852706.724772368790582, 6364880.276307493448257 ] } },
+{ "type": "Feature", "properties": { "ID": "5", "ID_2": "1190003731", "TYPPPD_KOD": "1016", "KATUZE_KOD": 600822, "TEXT_KM": "510", "PBPP_ID": "10479731", "PZBPP_ID": null, "ZBPP_ID": null, "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 1852643.071949804434553, 6364526.226765314117074 ] } },
+{ "type": "Feature", "properties": { "ID": "6", "ID_2": "1190004731", "TYPPPD_KOD": "1016", "KATUZE_KOD": 600822, "TEXT_KM": "511", "PBPP_ID": "10480731", "PZBPP_ID": null, "ZBPP_ID": null, "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 1852617.468862812966108, 6364535.514829003252089 ] } },
+{ "type": "Feature", "properties": { "ID": "7", "ID_2": "1190175731", "TYPPPD_KOD": "1016", "KATUZE_KOD": 600822, "TEXT_KM": "518", "PBPP_ID": "8902731", "PZBPP_ID": null, "ZBPP_ID": null, "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 1852690.897054380970076, 6363948.236264961771667 ] } },
+{ "type": "Feature", "properties": { "ID": "8", "ID_2": "1190178731", "TYPPPD_KOD": "1016", "KATUZE_KOD": 600822, "TEXT_KM": "505", "PBPP_ID": "10477731", "PZBPP_ID": null, "ZBPP_ID": null, "ROTACE": 0, "VZ_BOD": "BL", "MERITKO": "1" }, "geometry": { "type": "Point", "coordinates": [ 1852754.553982975427061, 6364894.774867017753422 ] } }
+]
+}

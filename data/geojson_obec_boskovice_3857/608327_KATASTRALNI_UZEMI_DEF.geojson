@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "KATASTRALNI_UZEMI_DEF",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": "1", "ID_2": "608327", "TYPPPD_KOD": "9100104", "KOD": 608327, "TEXT_KM": "Boskovice" }, "geometry": { "type": "Point", "coordinates": [ 1854988.388129412196577, 6359543.660255436785519, 44.161333313211799 ] } }
+]
+}
