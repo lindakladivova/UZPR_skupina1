@@ -1,0 +1,13 @@
+#TeX files
+*.out
+*.log
+*.bbl
+*.lof
+*.aux
+*.blg
+*.lot
+*.gz
+*.toc
+
+#GeoJSON files
+*.geojson
