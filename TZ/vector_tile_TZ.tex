@@ -41,7 +41,7 @@
 \LARGE  \textbf{ Nasazení vektorových dlaždic při tvorbě katastrální mapy}
 \vspace{3cm}
 
-\Large Bc. Linda Kladivová, Bc. Jana Špererová, Bc. Lukáš Kettner, Bc. Martin Hulín \\ 20.12.2019
+\Large Bc. Linda Kladivová, Bc. Jana Špererová, Bc. Lukáš Kettner, Bc. Martin Hulín \\ \today
 
  \thispagestyle{empty} %neočísluje první stránku
 \end{titlepage}
@@ -138,20 +138,67 @@ V databázi bylo tedy celkem vytvořeno 21 tabulek (podle názvů shapefilů), d
 
 Obrázky dat v QGISu
 
-\subsection{Export dat z PostGIS do formátu geojson}
+\subsection{Export dat z formátu shapefile do formátu geojson}
 
-Tato část už byla naprogramována v prostředí LINUX, jelikož pro tvorbu vektorových dlaždic byla použita utilita \textbf{tippecanoe}, jež je k dispozici pouze na tomto operačním systému.
+Pomocí skriptu v Power shellu byly *.shp soubory převedeny na *.geojson soubory, ze kterých se následně tvoří vektorové dlaždice utilitou \textbf{tippecanoe}.
+
+Zároveň zde byl změněn souřadnicový systém dat z WGS84 na Web Mercator s kódem EPSG:3857.
+
+Při práci nastalo několik problémů, které bylo potřeba řešit.
+\begin{itemize}
+	
+	\item Povolení spouštění skriptů: set-executionpolicy remotesigned
+	
+	\item Nastavení systémové proměnné GDAL\_DATA tak, aby ukazovala na adresář se souřadnicovými systémy.
+	
+	\item Změna cílového souřadnicového systému na Web Mercator -- EPSG:3857
+	
+\end{itemize}
+
+%Tato část už byla naprogramována v prostředí LINUX, jelikož pro tvorbu vektorových dlaždic byla použita utilita \textbf{tippecanoe}, jež je k dispozici pouze na tomto operačním systému.
 
 
 \subsection{Tvorba vektorových dlaždic}
 Cílem této práce je tvorba vektorových dlaždic s různým zadáním parametrů, tak aby bylo zřejmé, jak funguje utilita \textbf{tippecanoe}, a jaké nastavení by bylo vhodné použít v případě dat katastrální mapy.
 
+\vspace{0.5cm}
+Dlaždice byly vytvořeny příkazem:
+
+\begin{lstlisting}
+tippecanoe -o ./scratch/tiles.mbtiles -zg -pk -pC -pS -pt -f
+./UZPR_data/geojson_obec_boskovice/600822_BUDOVY_P.geojson
+\end{lstlisting}
+
+
+\vspace{0.5cm}
+Význam jednotlivých parametrů:
+\begin{lstlisting}
+
+-o Zapsat nove dlazdice do specifikovaneho .mbtiles souboru
+
+-zg Automaticky vyber max zoom tak,
+aby bylo mozne dostatecne rozlisit prvky i jejich detaily
+
+-pk Bez omezeni velikosti na 500KB
+
+-pC Nekomprimovat vectorova data ve formatu PBF.
+Chyba "Unimplemented type 3" je nejspis zpusobena komprimovanymi dlazdicemi
+
+-pS Negeneralizovat linie a polygony pri max zoom(pro mensi zoom zjednodusuje)
+
+-f Odstrani vystup.mbtiles pokud jiz existuje
+\end{lstlisting}
+
+
 \subsection{Vybalení vektorových dlaždic}
+Není mí jasné k čemu ju, po vybalení je údajně práce s dlaždicemi výrazně náročnější. Pravděpodobně je to cesta ke stejnému zobrazení jako dělal Honza při volbách.
 
 \subsection{Vykreslení vektorových dlaždic}
+Nepovedlo se. Není mi jasné pomocí čeho chceme dlaždice vykreslit. Dlaždice jsem nahrál na MapTailer, kde se krásně zobrazily, ale s free účtem to jde jen jednou.
 
+Dál jsem zkoušel https://gitlab.com/IvanSanchez/Leaflet.TileLayer.MBTiles, ale ani zde jsem nepochodil. Zobrazuje sice vektorové dlaždice, ale ve formátu png.
 
-
+Použít JS knihovnu jak doporučoval Honza se mi taky nepovedlo. Nechápu jak funguje a co je potřeba změnit.
 
 
 
