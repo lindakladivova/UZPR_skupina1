@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "KATASTRALNI_UZEMI_DEF",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
-"features": [
-{ "type": "Feature", "properties": { "ID": "1", "ID_2": "608483", "TYPPPD_KOD": "9100104", "KOD": 608483, "TEXT_KM": "Mladkov u Boskovic" }, "geometry": { "type": "Point", "coordinates": [ 1850506.344467513030395, 6357833.510082647204399, 44.216969612054527 ] } }
-]
-}
