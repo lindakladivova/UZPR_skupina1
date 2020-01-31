@@ -108,6 +108,14 @@ Shapefile je datový formát pro ukládání vektorových prostorových dat, kte
 %------------------------------------------------------------------------
 \section{Popis a formát výstupních dat}
 
+\subsection{MBTiles}
+Jde o formát, který slouží pro ukládání mnoho mapových dlaždic v jednom souboru. V podstatě se jedná o jednoduchou souborovou sqlite databázi s pár tabulkami. Může obsahovat rastrová nebo vektorová data.
+
+\begin{center}
+	\includegraphics[width=13cm]{./img/mbtiles_db_structure.png}
+	\captionof{figure}{Ukázka struktury souborové databáze}
+\end{center}
+
 \textcolor{red}{
 Jana\\
 podrobný popis formátu geojson a vektorových dlaždic}
@@ -149,7 +157,7 @@ Při práci nastalo několik problémů, které bylo potřeba řešit.
 	
 	\item Povolení spouštění skriptů: set-executionpolicy remotesigned
 	
-	\item Nastavení systémové proměnné GDAL\_DATA tak, aby ukazovala na adresář se souřadnicovými systémy.
+	\item Nastavení systémové proměnné GDAL\_DATA tak, aby ukazovala na adresář se souřadnicovými systémy
 	
 	\item Změna cílového souřadnicového systému na Web Mercator -- EPSG:3857
 	
