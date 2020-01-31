@@ -109,12 +109,17 @@ Shapefile je datový formát pro ukládání vektorových prostorových dat, kte
 \section{Popis a formát výstupních dat}
 
 \subsection{MBTiles}
-Jde o formát, který slouží pro ukládání mnoho mapových dlaždic v jednom souboru. V podstatě se jedná o jednoduchou souborovou sqlite databázi s pár tabulkami. Může obsahovat rastrová nebo vektorová data.
+Jde o formát, který slouží pro ukládání velkého množství mapových dlaždic v jednom souboru. V podstatě se jedná o jednoduchou souborovou sqlite databázi s pár tabulkami. Může obsahovat rastrová nebo vektorová data.
 
 \begin{center}
 	\includegraphics[width=13cm]{./img/mbtiles_db_structure.png}
 	\captionof{figure}{Ukázka struktury souborové databáze}
 \end{center}
+
+\subsection{Formát PFB ("Protocolbuffer Binary Format")}
+Tento formát používají pro ukládání dat OpenStreetMaps.
+
+Např: \url{https://wiki.openstreetmap.org/wiki/PBF_Format}
 
 \textcolor{red}{
 Jana\\
@@ -199,7 +204,7 @@ Chyba "Unimplemented type 3" je nejspis zpusobena komprimovanymi dlazdicemi
 
 
 \subsection{Vybalení vektorových dlaždic}
-Není mí jasné k čemu ju, po vybalení je údajně práce s dlaždicemi výrazně náročnější. Pravděpodobně je to cesta ke stejnému zobrazení jako dělal Honza při volbách.
+Ze souborové databáze ve formátu mbtile se vytvoří struktura malých vektorových dlaždic ve formátu PBF, které si klient načítá. Nemusí tedy stahovat ze serveru do paměti celou databázi mbtile, která může být velmi velká. Posílá dotazy jen na menší soubory pbf, které jsou ve struktuře x, y, z.
 
 \subsection{Vykreslení vektorových dlaždic}
 Nepovedlo se. Není mi jasné pomocí čeho chceme dlaždice vykreslit. Dlaždice jsem nahrál na MapTailer, kde se krásně zobrazily, ale s free účtem to jde jen jednou.
