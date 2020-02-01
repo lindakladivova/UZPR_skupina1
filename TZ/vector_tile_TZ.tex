@@ -121,6 +121,8 @@ Tento formát používají pro ukládání dat OpenStreetMaps.
 
 Např: \url{https://wiki.openstreetmap.org/wiki/PBF_Format}
 
+\url{https://github.com/mapbox/pbf}
+
 \textcolor{red}{
 Jana\\
 podrobný popis formátu geojson a vektorových dlaždic}
@@ -174,6 +176,10 @@ Při práci nastalo několik problémů, které bylo potřeba řešit.
 \subsection{Tvorba vektorových dlaždic}
 Cílem této práce je tvorba vektorových dlaždic s různým zadáním parametrů, tak aby bylo zřejmé, jak funguje utilita \textbf{tippecanoe}, a jaké nastavení by bylo vhodné použít v případě dat katastrální mapy.
 
+Podporovaný souřadnicový systém vstupních dat je WGS--84 (default) s EPSG kódem 4326 nebo Web Mercator EPSG:3857. Pro druhou variantu je potřeba pomocí vstupního parametru -s upřesnit, že jde o vstupní data ve formátu Web Mercator.
+
+Výsledná souborová databáze ve formátu mbtile je v souřadnicovém systému Web Mercator.
+
 \vspace{0.5cm}
 Dlaždice byly vytvořeny příkazem:
 
@@ -207,11 +213,17 @@ Chyba "Unimplemented type 3" je nejspis zpusobena komprimovanymi dlazdicemi
 Ze souborové databáze ve formátu mbtile se vytvoří struktura malých vektorových dlaždic ve formátu PBF, které si klient načítá. Nemusí tedy stahovat ze serveru do paměti celou databázi mbtile, která může být velmi velká. Posílá dotazy jen na menší soubory pbf, které jsou ve struktuře x, y, z.
 
 \subsection{Vykreslení vektorových dlaždic}
-Nepovedlo se. Není mi jasné pomocí čeho chceme dlaždice vykreslit. Dlaždice jsem nahrál na MapTailer, kde se krásně zobrazily, ale s free účtem to jde jen jednou.
 
-Dál jsem zkoušel https://gitlab.com/IvanSanchez/Leaflet.TileLayer.MBTiles, ale ani zde jsem nepochodil. Zobrazuje sice vektorové dlaždice, ale ve formátu png.
+\subsubsection{Leaflet}
+Umožňuje zobrazit pouze rastrová data.
 
-Použít JS knihovnu jak doporučoval Honza se mi taky nepovedlo. Nechápu jak funguje a co je potřeba změnit.
+\subsubsection{Leaflet Vector Grid}
+
+%Nepovedlo se. Není mi jasné pomocí čeho chceme dlaždice vykreslit. Dlaždice jsem nahrál na MapTailer, kde se krásně zobrazily, ale s free účtem to jde jen jednou.
+
+%Dál jsem zkoušel https://gitlab.com/IvanSanchez/Leaflet.TileLayer.MBTiles, ale ani zde jsem nepochodil. Zobrazuje sice vektorové dlaždice, ale ve formátu png.
+
+%Použít JS knihovnu jak doporučoval Honza se mi taky nepovedlo. Nechápu jak funguje a co je potřeba změnit.
 
 
 
