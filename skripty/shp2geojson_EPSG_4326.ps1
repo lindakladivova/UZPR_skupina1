@@ -1,5 +1,5 @@
 ﻿# Datum: 29.1.2020
-# Účel: Slouží pro konverzi shapefilu na geojsony do systému Web Mercator(EPSG:3857)
+# Účel: Slouží pro konverzi shapefilu na geojsony do systému WGS84(EPSG:4326)
 # Copyright: (C) 2020 Lukáš Kettner
 # Spouštět jako správce!!!
 # Zjistit aktuální nastavení
