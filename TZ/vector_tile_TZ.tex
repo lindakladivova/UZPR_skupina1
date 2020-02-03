@@ -50,6 +50,10 @@
 \newpage %začne na nové stránce
 %------------------------------------------------------------------------
 \section{Úvod}
+Cílem této semestrální práce bylo, ze shapefilových vektorových dat katastrálních území vytvořit vektorové dlaždice a najít nejvhodnější nastavení pro jejich prezentaci na webových prohlížečích.
+Vektorové dlaždice, jsou ve své podstatě rozřezané vektorové mapy na jednotlivé úseky podle nějaké mřížky. A každá dlaždice je pak samostatným článkem. Například tedy, že už na webu nemusím načítat celou velkou mapu, ale načtu pouze jednu konkrétní dlaždici, která odpovídá lokalitě, kterou potřebuji. Tím, že vektorové dlaždice jsou pouze část celku, mají mnohem menší objem dat a tedy jsou méně náročné na zpracování.
+Vytváření vektorových dlaždic nemá zatím v dnešní době žádný standart pro jejich vytváření. Jedinou výjimkou je Mapbox, který specifikuje nějaké předpoklady pro jejich vytváření. Pro vytvoření vektorových dlaždic v této práci, jsme se rozhodli pro použití nástroje Tippecanoe.
+Nástroj Tippecanoe jsme vybrali z důvodu, že je to opensource nástroj, který je veřejně dostupný např. na GitHubu. Našimi vstupními daty pro tuto funkci byla data poskytnutá ČUZK ve formátu shapefile. Tato data byla převedena na geojson, ze kterého byly vygenerovány jednotlivé vektorové dlaždice ve formátu pbf a ty pak nahrány na webový server.
 
 
 
@@ -123,9 +127,21 @@ Např: \url{https://wiki.openstreetmap.org/wiki/PBF_Format}
 
 \url{https://github.com/mapbox/pbf}
 
-\textcolor{red}{
-Jana\\
-podrobný popis formátu geojson a vektorových dlaždic}
+\subsection{Geojson}
+Geojson je otevřený formát, který jednoduše prezentuje prostorová data i s jejich atributy. Nejčastěji je využíván pro svoji jednoduchost, snadnou čitelnost a malý objem dat. Díky tomu není tak náročný na zpracování, proto se hodí například pro webové prohlížeče.
+Tento formát je založen na JavaScript Object Notation (JSON). Předpona geo značí práci s geodaty. Referenční souřadný systém pro použití geojson formátu bývá zpravidla WGS84. Json je formát, který používá textový zápis dat nezávisle na platformě. A lze používat následující typy dat:
+\newline string … textový řetězec (např.: „Hello world“)
+\newline number … číslo (celočíselné nebo reálné) (např.: 0.1e-12 nebo 0.7 nebo -12 atd.)
+\newline boolean … logická hodnota (true nebo false)
+\newline null … nulová(prázdná) hodnota (zadáváme pouze null)
+\newline array … pole (např.: [1, „vektorové dlaždice“, true] atd.)
+\newline object … objekt (např.: {„x“ : 5000, „y“ : 1000} atd.)
+\newline
+\newline  V našem případě bylo použit jeden objekt, který se uvnitř větvil na další části a udával např. minimální a maximální možné přiblížení nebo jaké souřadnice jsou výchozí souřadnice pro zobrazení dlaždic.
+
+\subsection{Vektorové dlaždice}
+Výhodou vektorových dlaždic je, že uživatel si zobrazí pouze data z konkrétní lokality, která ho zajímá a nemusí načítat okolní data, která jsou pro něj nepotřebná. A tím pádem ušetří čas při čekání, než by se všechna okolní data načetla. Díky vektorové dlaždici načte pouze konkrétní dlaždici a zbytek dat, jako kdyby v danou chvíli „neexistoval“.
+Abychom mohli jakoukoli mapu převést na vektorovou dlaždici, nejprve potřebujeme, aby výchozí dataset byl vektorové struktury. Tedy, že každý prvek má svoji geometrickou informaci. Tedy, že každý prvek se skládá z křivek. Pokud máme vektorový dataset připravený, stačí si vytvořit grid, podle kterého daný dataset „rozdělíme“ na jednotlivé vektorové dlaždice.
 
 %------------------------------------------------------------------------
 \clearpage 
