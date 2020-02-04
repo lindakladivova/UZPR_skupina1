@@ -18,7 +18,7 @@
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,
+    linkcolor=black,
     filecolor=magenta,      
     urlcolor=cyan,
 }
@@ -258,16 +258,15 @@ Chyba "Unimplemented type 3" je nejspis zpusobena
 
 
 \subsection{Vybalení vektorových dlaždic}
-Pro rozbalení vektorových dlaždic vytvořeným utilitou tippecanoe byla použita utilita \textbf{mbutil}. Tento pomocný program exportuje dlaždice z formátu \mbox{MBTiles}. 
+Pro rozbalení vektorových dlaždic vytvořených utilitou tippecanoe byla použita další utilita \textbf{MBUtil}. Tento pomocný program exportuje dlaždice z formátu \mbox{MBTiles}. 
 
 Ze souborové databáze ve formátu MBTile se vytvoří struktura malých vektorových dlaždic ve formátu PBF, které si klient načítá. Nemusí tedy stahovat ze serveru do paměti celou databázi mbtile, která může být velmi velká. Posílá dotazy jen na menší soubory pbf, které jsou ve struktuře \mbox{x, y, z}.
 
+\vspace{0.5cm}
 Použitý příkaz pro rozbalení:
 
 \begin{lstlisting}
-
 mb-util ./scratch/tiles.mbtiles ./tiles --image_format=pbf
-
 \end{lstlisting}
 
 \subsection{Vykreslení vektorových dlaždic}
@@ -332,13 +331,13 @@ Zpracování práce probíhalo na operačním systému Windows 10 s naistalovan�
 
 %-------------------------------------------------------------------------
 
-\listoftables
+%\listoftables
 
 %-------------------------------------------------------------------------
 \nocite{*}
 %\printbibliography
-\bibliography{literatura}{}
-\bibliographystyle{plain}
+%\bibliography{literatura}{}
+%\bibliographystyle{plain}
 %-------------------------------------------------------------------------
     
 \end{document}             % Konec dokumentu.
