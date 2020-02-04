@@ -1,4 +1,4 @@
-#TeX files
+# TeX files
 *.out
 *.log
 *.bbl
@@ -9,5 +9,10 @@
 *.gz
 *.toc
 
-#GeoJSON files
+# GeoJSON files
 *.geojson
+.*json
+
+# Vetor tiles
+*.mbtiles
+*.pbf
