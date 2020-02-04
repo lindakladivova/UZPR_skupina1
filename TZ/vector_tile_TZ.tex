@@ -143,11 +143,7 @@ Jde o formát, který slouží pro ukládání velkého množství mapových dla
 \end{center}
 
 \subsection{Formát PBF ("Protocolbuffer Binary Format")}
-Tento formát používají pro ukládání dat OpenStreetMaps.
-
-Např: \url{https://wiki.openstreetmap.org/wiki/PBF_Format}
-
-\url{https://github.com/mapbox/pbf}
+Tento formát používají pro ukládání dat OpenStreetMaps. Je myšlen jako alternativa k formátu XML. Podrobný popis na wiki openstreetmap: \url{https://wiki.openstreetmap.org/wiki/PBF_Format}.
 
 \subsection{GeoJSON}
 GeoJSON je otevřený formát, který jednoduše prezentuje prostorová data i s jejich atributy. Nejčastěji je využíván pro svoji jednoduchost, snadnou čitelnost a malý objem dat. Díky tomu není tak náročný na zpracování, proto se hodí například pro webové prohlížeče.
@@ -316,9 +312,15 @@ Pomocí knihovny Mapbox GL se nám podařilo data zobrazit.
 %-------------------------------------------------------------------------
 \clearpage
 \section{Závěr}
-Výsledkem práce je funkční zobrazení vektorových dlaždic alespoň katastrálního území číslo 608483 spadající pod obec Boskovice. Zobrazena je pouze vrstva \mbox{HRANICE\_PARCEL\_L}. Mapové okno je přístupné na adrese \url{http://gislab2.fsv.cvut.cz/barrel/kettner/02_MapboxGL/}.
+Výsledkem práce je funkční zobrazení vektorových dlaždic alespoň katastrálního území číslo 608483 spadající pod obec Boskovice. Zobrazena je pouze vrstva \mbox{HRANICE\_PARCEL\_L}. Mapové okno je přístupné na adrese: \url{http://gislab2.fsv.cvut.cz/barrel/kettner/02_MapboxGL/}.
 
+Nejnáročnější částí práce bylo zobrazení dat. Dlouhou dobu se nedařilo vytvořené dlaždice jakkoliv zobrazit. Vygenerované dlaždice jsme si kontrolovali v programu QGIS jestli jsou správně vytvořené. Příprava dat a tvorba dlaždic nám zabralo nesrovnatelně méně času. Po instalaci potřebných utilit jsme se snažili veškeré příkazy optimalizovat pomocí skriptů pro snadnou rekonstrukci s dalšími daty.
 
+Možností na zlepšení je rozšíření objemu zobrazených dat o další vrstvy a hlavně větší území. V práci se nám podařilo kompletně zpracovat alespoň malá testovací data. Rozšířit zobrazení o další uzemí už nebude takovýproblém, když máme k dispozici fungující kostru pro zobrazvání a skripty pro tvorbu dlaždic.
+
+Vektorové dlaždice jsou jistě cesta jak datově zefektivnit a hlavně zrychlit vykreslování dat na webu. Možností je dost a určitě se vyplatí tomuto tématu věnovat pozornost pokud řešíme zobrazování dat v mapě nejen na webu.
+
+Zpracování práce probíhalo na operačním systému Windows 10 s naistalovaným VirtualBoxem. Na VirtualBoxu jsme spouštěli Linux Mint, abychom mohli využívat utilitu tippecanoe, které je dostupná jen pro Linux.
 
 \newpage
 %-------------------------------------------------------------------------
