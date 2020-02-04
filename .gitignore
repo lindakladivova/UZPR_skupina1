@@ -16,3 +16,6 @@
 # Vetor tiles
 *.mbtiles
 *.pbf
+
+# Folder
+./dlazdice/tiles
