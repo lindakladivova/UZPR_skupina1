@@ -23,6 +23,11 @@
     urlcolor=cyan,
 }
 
+\hoffset=-1.1cm       %  vodorovné posunutí proti standardu (+=doprava)
+\voffset=-1.4cm       %  svislé    posunutí proti standardu (+=dolů)
+\textwidth=16.5cm     %  šířka textu
+\textheight=23cm      %  výška textu 
+
 %===========================================================================
 \begin{document}           % Konec preambule a zároveň začátek vlastního textu
 \begin{titlepage}
@@ -52,6 +57,7 @@
 \section{Úvod}
 Cílem této semestrální práce bylo, ze shapefilových vektorových dat katastrálních území vytvořit vektorové dlaždice a najít nejvhodnější nastavení pro jejich prezentaci na webových prohlížečích.
 Vektorové dlaždice, jsou ve své podstatě rozřezané vektorové mapy na jednotlivé úseky podle nějaké mřížky. A každá dlaždice je pak samostatným článkem. Například tedy, že už na webu nemusím načítat celou velkou mapu, ale načtu pouze jednu konkrétní dlaždici, která odpovídá lokalitě, kterou potřebuji. Tím, že vektorové dlaždice jsou pouze část celku, mají mnohem menší objem dat a tedy jsou méně náročné na zpracování.
+
 Vytváření vektorových dlaždic nemá zatím v dnešní době žádný standart pro jejich vytváření. Jedinou výjimkou je Mapbox, který specifikuje nějaké předpoklady pro jejich vytváření. Pro vytvoření vektorových dlaždic v této práci, jsme se rozhodli pro použití nástroje Tippecanoe.
 Nástroj Tippecanoe jsme vybrali z důvodu, že je to opensource nástroj, který je veřejně dostupný např. na GitHubu. Našimi vstupními daty pro tuto funkci byla data poskytnutá ČUZK ve formátu shapefile. Tato data byla převedena na geojson, ze kterého byly vygenerovány jednotlivé vektorové dlaždice ve formátu pbf a ty pak nahrány na webový server.
 
@@ -62,33 +68,48 @@ Nástroj Tippecanoe jsme vybrali z důvodu, že je to opensource nástroj, kter�
 \section{Popis a rozbor problému}
 
 \subsection{Vektorvý a rastrový formát}
-Každý z formátov publikácie priestorových dát má svoje výhody a nevýhody. Je potreba dobre zvážiť umýsel, možnosti a výsledný cieľ publikácie. Rastrové dlaždice majú v porovnaní s vektorovými jednoduchšiu dátovú štruktúru a spracovanie rastrových dát je vo väčšine prípadov jednoduchšie. Veľkou nevýhodou dát v rastrovom formáte sú obmedzené možnosti práce s datami, kedy pri porovnaní s vektorovými dátami pracujeme s obrazom javu a nie konkrétnymi geoprvkami. Ďalšou nevýhodou rastrových dlaždíc je ich veľkosť. Vzhľadom na využitie práce, riešenie má byť aplikované pre dáta celého územia Českej republiky, je práve veľkosť kľúčovým faktorom, ktorý hovorí v prospech vektorových dlaždíc. Z hladiska úložiska vektorové dlaždice zaberajú kapacitne niekoľkonásobne menší (väčšinou) priestor úložiska. Z tohto faktu plynie ďalšia výhoda pri použiti vektorových dlaždíc, úspora datového toku na klientovi, vykreslujú sa dlaždice, ktoré sú v aktuálnom pohľade mapy. 
-\newline Ďalším podstatným plusom oproti rastrovým dlaždiciam je možnosť vektorového formátu niesť topologickú informáciu, ktorú môže užívateľ využiť pri následnej práci s dátami a vykonávaní rozličných analýz. Jedným z príkladov je možnosť vykonávať úpravy priamo na strane klienta,  bez nutnosti interakcie so serverom. Táto možnosť je užitočná pri projektoch v oblasti open source mapovania a práci s využitím mapovej služby priamo v teréne. 
-\newline K výhodám vektorových dlaždíc patrí aj kartografická generalizácia. V závislosti na úrovni priblíženia (merítku) je možné nastaviť optimalizáciu zobrazenia vektorových dlaždíc. Jednotlivé geoprvky je možné zlúčiť, zjednodušiť či agregovať, tak aby podrobnosť geometrie a atribútového obsahu dlaždíc odpoveda úrovni priblíženia.
-\newline Jednou z ďalších výhod vektorových dátach je možná individuálna štylizácia dát na strane klienta, presne podľa jeho požiadavkov, bez toho aby dáta na serveri museli byť zmené.
-\newline V prípade modelového príkladu z praxe. Pokiaľ by sme chceli na mobilnom zariadení, v lokalite so slabším internetovým pripojením vykonať jednoduchú analýzu nad mapou vytvorenou z rastrových dlaždíc, sme takmer bez šance na úspech. V prípade použitia vektorových dlaždíc bude možné túto analýzu vykonať.
+Každý z formátov publikácie priestorových dát má svoje výhody a nevýhody. Je potreba dobre zvážiť umýsel, možnosti a výsledný cieľ publikácie. Rastrové dlaždice majú v porovnaní s vektorovými jednoduchšiu dátovú štruktúru a spracovanie rastrových dát je vo väčšine prípadov jednoduchšie. Veľkou nevýhodou dát v rastrovom formáte sú obmedzené možnosti práce s datami, kedy pri porovnaní s vektorovými dátami pracujeme s obrazom javu a nie konkrétnymi geoprvkami. Ďalšou nevýhodou rastrových dlaždíc je ich veľkosť. Vzhľadom na využitie práce, riešenie má byť aplikované pre dáta celého územia Českej republiky, je práve veľkosť kľúčovým faktorom, ktorý hovorí v prospech vektorových dlaždíc. Z hladiska úložiska vektorové dlaždice zaberajú kapacitne niekoľkonásobne menší (väčšinou) priestor úložiska. Z tohto faktu plynie ďalšia výhoda pri použiti vektorových dlaždíc, úspora datového toku na klientovi, vykreslujú sa dlaždice, ktoré sú v aktuálnom pohľade mapy.
+
+Ďalším podstatným plusom oproti rastrovým dlaždiciam je možnosť vektorového formátu niesť topologickú informáciu, ktorú môže užívateľ využiť pri následnej práci s dátami a vykonávaní rozličných analýz. Jedným z príkladov je možnosť vykonávať úpravy priamo na strane klienta,  bez nutnosti interakcie so serverom. Táto možnosť je užitočná pri projektoch v oblasti open source mapovania a práci s využitím mapovej služby priamo v teréne. 
+
+K výhodám vektorových dlaždíc patrí aj kartografická generalizácia. V závislosti na úrovni priblíženia (merítku) je možné nastaviť optimalizáciu zobrazenia vektorových dlaždíc. Jednotlivé geoprvky je možné zlúčiť, zjednodušiť či agregovať, tak aby podrobnosť geometrie a atribútového obsahu dlaždíc odpoveda úrovni priblíženia.
+
+Jednou z ďalších výhod vektorových dátach je možná individuálna štylizácia dát na strane klienta, presne podľa jeho požiadavkov, bez toho aby dáta na serveri museli byť zmené.
+
+V prípade modelového príkladu z praxe. Pokiaľ by sme chceli na mobilnom zariadení, v lokalite so slabším internetovým pripojením vykonať jednoduchú analýzu nad mapou vytvorenou z rastrových dlaždíc, sme takmer bez šance na úspech. V prípade použitia vektorových dlaždíc bude možné túto analýzu vykonať.
 
 \subsection{Súčasný stav mapového serveru Marushka}
 
-V súčasnom stave mapový server Marushka slúži k uloženiu, poskytovaniu a aktualizácii mapových dát na území Českej republiky. Všetky dáta publikované touto aplikáciou sú uložené v databázy Informačného systému katastru nemovitostí (ISKN) a v databázy Informačného systému územnej identifikácie (ISÚI). V rámci týchto dvoch databází prebiehajú všetky aktualizácie zobrazených prvkov. Na tieto databáze je následne napojená Publikačná databáza a v nej prebiehajú úpravy geometrií v pravidelných dvojhodinových cykloch. Úpravy sa týkajú zväčša transformácie geometrie , aby bolo možné jej optimálnejšie zobrazovanie a publikácia. Celá logika postupu je na základe databázovej úrovne a je realizovaná pomocou PL/SQL skriptov. Takto upravené dáta sú automaticky exportovaná do WKB súborov. Z týchto preddefinovaných súborov prebieha samotná publikácia dát vo forme rastrových dlaždíc. K aktualizácii katastrálnej mapy dôjde v celom katastrálnom území, pokial sa v ňom objaví zmena.
+V súčasnom stave mapový server Marushka slúži k uloženiu, poskytovaniu a aktualizácii mapových dát na území Českej republiky. Všetky dáta publikované touto aplikáciou sú uložené v databázy Informačného systému katastru nemovitostí (ISKN) a v databázy Informačného systému územnej identifikácie (ISÚI). V rámci týchto dvoch databází prebiehajú všetky aktualizácie zobrazených prvkov. Na tieto databáze je následne napojená Publikačná databáza a v nej prebiehajú úpravy geometrií v pravidelných dvojhodinových cykloch. Úpravy sa týkajú zväčša transformácie geometrie , aby bolo možné jej optimálnejšie zobrazovanie a publikácia.
+
+Celá logika postupu je na základe databázovej úrovne a je realizovaná pomocou PL/SQL skriptov. Takto upravené dáta sú automaticky exportovaná do WKB súborov. Z týchto preddefinovaných súborov prebieha samotná publikácia dát vo forme rastrových dlaždíc. K aktualizácii katastrálnej mapy dôjde v celom katastrálnom území, pokial sa v ňom objaví zmena.
 
 \begin{center}
    \includegraphics[width=12cm]{./img/Marushka1.png}
    \captionof{figure}{Mapový server Marushka}
 \end{center}
 
- Pre lepšie porozumenie je potrebné objasniť, čo je to WKB súbor. Mapový server Marushka nativne pracuje s týmto vektorovým formátom, Well known Binary (WKB, štandard konsorcia OGC). Tento formát je používaný aj pre implementáciu databázového priestorového úložiska, ktoré je kompatibilné s produktami fy GEOVAP(Geostore), prípadne pre export akéhokoľvek skladu do tzv. file cash. 
- \newline Nad súbormi WKB je možné vybudovať viacúrovňový priestorový index reprezentovaný štruktúrou R-Tree. Tento index výrazne zefektívni priestorový prístup k jednotlivým geometrickým elemoentom. Podrobnejšie informácie je možné nájsť na oficiálne stránke  \href{http://geovap.q2.cz/marushka/cz/produkty-a-sluzby/categoryId/3/souborove-vektorove-formaty-/popis/architektura/2#item15}{ serveru Marushka}.
- \newline Využitie vektorových dlaždíc na mapovom serveri Marushka by viedlo k zjednodušeniu aktualizácie katastrálnej mapy. Aktualizovala by sa len základná dlaždica, v ktorej sa prvok nachádza. To by vylúčilo nutnosť aktualizovať celé katastrálne územie, tým by sa výrazne znížila časová náročnosť pre aktualizáciu dát a aktualne dáta na mapovom serveri Marushka by mali užívatelia k dispozícii takmer ihneď po úprave.
+ Pre lepšie porozumenie je potrebné objasniť, čo je to WKB súbor. Mapový server Marushka nativne pracuje s týmto vektorovým formátom, Well known Binary (WKB, štandard konsorcia OGC). Tento formát je používaný aj pre implementáciu databázového priestorového úložiska, ktoré je kompatibilné s produktami fy GEOVAP(Geostore), prípadne pre export akéhokoľvek skladu do tzv. file cash.
+ 
+ Nad súbormi WKB je možné vybudovať viacúrovňový priestorový index reprezentovaný štruktúrou R-Tree. Tento index výrazne zefektívni priestorový prístup k jednotlivým geometrickým elemoentom. Podrobnejšie informácie je možné nájsť na oficiálne stránke  \href{http://geovap.q2.cz/marushka/cz/produkty-a-sluzby/categoryId/3/souborove-vektorove-formaty-/popis/architektura/2#item15}{ serveru Marushka}.
+ 
+Využitie vektorových dlaždíc na mapovom serveri Marushka by viedlo k zjednodušeniu aktualizácie katastrálnej mapy. Aktualizovala by sa len základná dlaždica, v ktorej sa prvok nachádza. To by vylúčilo nutnosť aktualizovať celé katastrálne územie, tým by sa výrazne znížila časová náročnosť pre aktualizáciu dát a aktualne dáta na mapovom serveri Marushka by mali užívatelia k dispozícii takmer ihneď po úprave.
 
 \subsection{Možnosti generování vektorových dlaždic}
 
- V dnešnej dobe je možnosť tvorby vektorových dlaždíc pomocou niekoľkých nástrojov. 
-\newline Spoločnosť Mapbox vytvorila otvorenú špecifikáciu Mapbox Vector Tile - MVT. Jedná sa o nástroj, ktorý umožňuje tvorbu mapových štýlov pre vektorové dlaždice nad vlastnými dátami. Základná varianta poskytovania mapových dlaždíc je dostupná zdarma. Spoločnosť Mapbox ponúka aj ďalšie nástroje, ktoré môže užívateľ využíť pri tvorbe mapovej aplikácie využívajucej ako podklad vektorové mapové dlaždice. Formát MVT je vyvynutý tak, aby požadované údaje boli súvislo v pamäti a aby vrstvy mahli byť bez úpravy údajov pripojené k dlaždici. Každá dlaždica by mala obsahovať aspoň jednu vrstvu, vrstva aspoň jeden prvok a prvok musí obsahovať pole geometrie. Prvky dlaždíc obsahujú ID, atribúty a geometriu. Geometria môže byť definovaná ako bod, línia či polygón. Geometria sa ukladá vo formáte MVT ako pole čísel x a y. Žačiatok jednej dlaždice je  v ľavom hornom rohu a koniec na dolnom okraji alebo v dolnom pravom rohu ( Mapbox 2017 ).
-\newline Ďalšou možnosťou je využitie projektu OpenMap Tiles. Jedná sa o sadu nástrojom pre tvorbu a štylizáciu vektorovej mapy. Tento projekt je nástupcom OSM2VectorTiles projektu. Zahŕňa nástroje pre tvorbu vektorových dlaždíc z OSM ( MVT), nástroj pre správu schémy vektorových dlaždíc ( popis jednotlivých tématických datových vrstiev a atribútov ), nástroj pre predpripravené štýly pre dlaždicové dáta a ich jednoduché prispôsobenie. Tento nástroj je možné využiť na počítači s Windows, MAC či Linux operačným systémom, čož je jeho obrovská výhoda napríklad proti nástroju Tippecanoe, ktorý je dostupný len pre Linux.  
-\newline Často používaným spôsobom je už spomenutý nástroj Tippecanoe. Nástroj prevádza jednotlivé dáta z formátu GeoJSON, Geobuf alebo CSV do vektorových mapových dlaždíc. Výstupom je formát so špecifikáciou MBTiles. Je ho možné považovať za SQL databázu, ktorá umožní uloženie vektorových mapových dlaždíc v jednom súbore. Tento nástroj bol využitý pri zobrazení vektorových dlaždíc v rámci nášho projektu. Veľkou výhodou bola dostupnosť podrobnej dokumentácie a vzorových príkladov na  \href{https://github.com/mapbox/tippecanoe}{ GitHub}.
+ V dnešnej dobe je možnosť tvorby vektorových dlaždíc pomocou niekoľkých nástrojov.
+ 
+Spoločnosť Mapbox vytvorila otvorenú špecifikáciu Mapbox Vector Tile - MVT. Jedná sa o nástroj, ktorý umožňuje tvorbu mapových štýlov pre vektorové dlaždice nad vlastnými dátami. Základná varianta poskytovania mapových dlaždíc je dostupná zdarma. Spoločnosť Mapbox ponúka aj ďalšie nástroje, ktoré môže užívateľ využíť pri tvorbe mapovej aplikácie využívajucej ako podklad vektorové mapové dlaždice. Formát MVT je vyvynutý tak, aby požadované údaje boli súvislo v pamäti a aby vrstvy mahli byť bez úpravy údajov pripojené k dlaždici. Každá dlaždica by mala obsahovať aspoň jednu vrstvu, vrstva aspoň jeden prvok a prvok musí obsahovať pole geometrie. Prvky dlaždíc obsahujú ID, atribúty a geometriu. Geometria môže byť definovaná ako bod, línia či polygón. Geometria sa ukladá vo formáte MVT ako pole čísel x a y. Žačiatok jednej dlaždice je  v ľavom hornom rohu a koniec na dolnom okraji alebo v dolnom pravom rohu ( Mapbox 2017 ).
 
- Pri požiadavku generovania vektorových dlaždíc priamo z databáze Oracle je možné využiť niekoľko postupov. Prvým z nich je generovanie vektorových dlaždíc pomocou Geoserveru. Ten avšak nemá vstavanú podporu pre Oracle databázu. Toto rozšírenie je potrebné doinštalovať. Pri inštalácii je potrebné zohľadniť fakt, že nie všetky požadované časti rozšírenia sú zakomponované v licenčných podmienkach. Preto je potrebné niektoré súbory rozšírenia stiahnuť dodatočne. Podrobný postup inštalácie rozšírenia je možné nájsť na stránkach \href{https://docs.geoserver.org/latest/en/user/data/database/oracle.html?fbclid=IwAR1LNaub9qU3N7TF0pFdn9-31HN7dunrrw8Nlrc7ZUJF_U0We0TaVyEOulA}{ GeoServeru}. Tento nástroj je rozdelený na komerčnú a open source verziu. Komerčná verzia zahŕňa balík nástrojov, ktorý umožní generovať vektorové dlaždice vo formáte GeoJSON, TopoJSON alebo Mapbox. Open source verzia umožňuje generovanie vektorových dlaždíc vo formáte MVT. \newline  Ďalšou možnosťou generovania vektorových dát priamo z Oracle databáze je využitie MapServeru. Postup je rovnaký ako v predchádzajucom prípade. Je potrebná inštalácia Oracle Spatial. Podrobný postup inšalácie je k dispozíci na webovej stránke \href{https://www.mapserver.org/input/vector/oracle.html?fbclid=IwAR11WezCmV5yU9ekxvdiRg76Bs2FQbJ5fafE6ri6op2os-0ahd5lv_dL3Ho}{ MapServeru}. \newline Treťou možnosťou je načítanie dát z Oracle databáze pomocou PostgreSQL a využitie GDAL/ORG data wrapper ( datových prevodníkov) a následné dokončenie vykreslenia vektorových dlaždíc v prostredí PostgreSQL.
+Ďalšou možnosťou je využitie projektu OpenMap Tiles. Jedná sa o sadu nástrojom pre tvorbu a štylizáciu vektorovej mapy. Tento projekt je nástupcom OSM2VectorTiles projektu. Zahŕňa nástroje pre tvorbu vektorových dlaždíc z OSM ( MVT), nástroj pre správu schémy vektorových dlaždíc ( popis jednotlivých tématických datových vrstiev a atribútov ), nástroj pre predpripravené štýly pre dlaždicové dáta a ich jednoduché prispôsobenie. Tento nástroj je možné využiť na počítači s Windows, MAC či Linux operačným systémom, čož je jeho obrovská výhoda napríklad proti nástroju Tippecanoe, ktorý je dostupný len pre Linux.  
+
+Často používaným spôsobom je už spomenutý nástroj Tippecanoe. Nástroj prevádza jednotlivé dáta z formátu GeoJSON, Geobuf alebo CSV do vektorových mapových dlaždíc. Výstupom je formát so špecifikáciou MBTiles. Je ho možné považovať za SQL databázu, ktorá umožní uloženie vektorových mapových dlaždíc v jednom súbore. Tento nástroj bol využitý pri zobrazení vektorových dlaždíc v rámci nášho projektu. Veľkou výhodou bola dostupnosť podrobnej dokumentácie a vzorových príkladov na  \href{https://github.com/mapbox/tippecanoe}{ GitHub}.
+
+ Pri požiadavku generovania vektorových dlaždíc priamo z databáze Oracle je možné využiť niekoľko postupov. Prvým z nich je generovanie vektorových dlaždíc pomocou Geoserveru. Ten avšak nemá vstavanú podporu pre Oracle databázu. Toto rozšírenie je potrebné doinštalovať. Pri inštalácii je potrebné zohľadniť fakt, že nie všetky požadované časti rozšírenia sú zakomponované v licenčných podmienkach. Preto je potrebné niektoré súbory rozšírenia stiahnuť dodatočne. Podrobný postup inštalácie rozšírenia je možné nájsť na stránkach \href{https://docs.geoserver.org/latest/en/user/data/database/oracle.html?fbclid=IwAR1LNaub9qU3N7TF0pFdn9-31HN7dunrrw8Nlrc7ZUJF_U0We0TaVyEOulA}{ GeoServeru}. Tento nástroj je rozdelený na komerčnú a open source verziu. Komerčná verzia zahŕňa balík nástrojov, ktorý umožní generovať vektorové dlaždice vo formáte GeoJSON, TopoJSON alebo Mapbox. Open source verzia umožňuje generovanie vektorových dlaždíc vo formáte MVT.
+ 
+ Ďalšou možnosťou generovania vektorových dát priamo z Oracle databáze je využitie MapServeru. Postup je rovnaký ako v predchádzajucom prípade. Je potrebná inštalácia Oracle Spatial. Podrobný postup inšalácie je k dispozíci na webovej stránke \href{https://www.mapserver.org/input/vector/oracle.html?fbclid=IwAR11WezCmV5yU9ekxvdiRg76Bs2FQbJ5fafE6ri6op2os-0ahd5lv_dL3Ho}{ MapServeru}.
+ 
+ Treťou možnosťou je načítanie dát z Oracle databáze pomocou PostgreSQL a využitie GDAL/ORG data wrapper ( datových prevodníkov) a následné dokončenie vykreslenia vektorových dlaždíc v prostredí PostgreSQL.
 
 %------------------------------------------------------------------------
 \clearpage
@@ -104,6 +125,7 @@ Našimi počátečními vstupními daty jsou data katastrální mapy ve formátu
 \end{itemize}
 
 Shapefile je datový formát pro ukládání vektorových prostorových dat, který se skládá s několika povinných a doplňkových souborů. Hlavní soubor .shp obsahuje seznam lomových bodů dané geometrie. Databázový soubor .dbf obsahuje popisné atributy jednotlivých geometrí, které v tomto případě kopírují popisné informace v tabulkách v publikační databázi. Tyto dva jmenované soubory jsou propojeny pomocí dalšího posledního povinného souboru .shx. U všech vrstev je obsažen ještě soubor .prj, který je ve všech případech stejný. Obsahuje definici souřadnicového systému a projekce (EPSG kód 5514). \\
+
 \indent Mezikrokem této práce je pokus o jednoduché napodobení publikační databáze ČÚZK, jelikož v reálném příkladě počáteční data pro generování vektorových dlaždic nemají charakter shapefilů, ale prostorových sloupců typu SDO\_GEOMETRY v Oracle databázi s indexem typu Rtree  (stromová datová struktura používaná pro prostorová data, která dělí a seskupuje blízká data do MER - minimal enclosing box). Vzhledem k tomu, že použití nadstavby Oracle Spatial není bezplatně možné, byla zvolena varianta řešení v databázi PostGIS.
 
 
@@ -120,27 +142,32 @@ Jde o formát, který slouží pro ukládání velkého množství mapových dla
 	\captionof{figure}{Ukázka struktury souborové databáze}
 \end{center}
 
-\subsection{Formát PFB ("Protocolbuffer Binary Format")}
+\subsection{Formát PBF ("Protocolbuffer Binary Format")}
 Tento formát používají pro ukládání dat OpenStreetMaps.
 
 Např: \url{https://wiki.openstreetmap.org/wiki/PBF_Format}
 
 \url{https://github.com/mapbox/pbf}
 
-\subsection{Geojson}
-Geojson je otevřený formát, který jednoduše prezentuje prostorová data i s jejich atributy. Nejčastěji je využíván pro svoji jednoduchost, snadnou čitelnost a malý objem dat. Díky tomu není tak náročný na zpracování, proto se hodí například pro webové prohlížeče.
+\subsection{GeoJSON}
+GeoJSON je otevřený formát, který jednoduše prezentuje prostorová data i s jejich atributy. Nejčastěji je využíván pro svoji jednoduchost, snadnou čitelnost a malý objem dat. Díky tomu není tak náročný na zpracování, proto se hodí například pro webové prohlížeče.
+
 Tento formát je založen na JavaScript Object Notation (JSON). Předpona geo značí práci s geodaty. Referenční souřadný systém pro použití geojson formátu bývá zpravidla WGS84. Json je formát, který používá textový zápis dat nezávisle na platformě. A lze používat následující typy dat:
-\newline string … textový řetězec (např.: „Hello world“)
-\newline number … číslo (celočíselné nebo reálné) (např.: 0.1e-12 nebo 0.7 nebo -12 atd.)
-\newline boolean … logická hodnota (true nebo false)
-\newline null … nulová(prázdná) hodnota (zadáváme pouze null)
-\newline array … pole (např.: [1, „vektorové dlaždice“, true] atd.)
-\newline object … objekt (např.: {„x“ : 5000, „y“ : 1000} atd.)
-\newline
-\newline  V našem případě bylo použit jeden objekt, který se uvnitř větvil na další části a udával např. minimální a maximální možné přiblížení nebo jaké souřadnice jsou výchozí souřadnice pro zobrazení dlaždic.
+
+\begin{itemize}
+	\item string … textový řetězec (např.: „Hello world“)
+	\item number … číslo (celočíselné nebo reálné) (např.: 0.1e-12 nebo 0.7 nebo -12 atd.)
+	\item boolean … logická hodnota (true nebo false)
+	\item null … nulová(prázdná) hodnota (zadáváme pouze null)
+	\item array … pole (např.: [1, „vektorové dlaždice“, true] atd.)
+	\item object … objekt (např.: {„x“ : 5000, „y“ : 1000} atd.)
+\end{itemize}
+
+V našem případě bylo použit jeden objekt, který se uvnitř větvil na další části a udával např. minimální a maximální možné přiblížení nebo jaké souřadnice jsou výchozí souřadnice pro zobrazení dlaždic.
 
 \subsection{Vektorové dlaždice}
 Výhodou vektorových dlaždic je, že uživatel si zobrazí pouze data z konkrétní lokality, která ho zajímá a nemusí načítat okolní data, která jsou pro něj nepotřebná. A tím pádem ušetří čas při čekání, než by se všechna okolní data načetla. Díky vektorové dlaždici načte pouze konkrétní dlaždici a zbytek dat, jako kdyby v danou chvíli „neexistoval“.
+
 Abychom mohli jakoukoli mapu převést na vektorovou dlaždici, nejprve potřebujeme, aby výchozí dataset byl vektorové struktury. Tedy, že každý prvek má svoji geometrickou informaci. Tedy, že každý prvek se skládá z křivek. Pokud máme vektorový dataset připravený, stačí si vytvořit grid, podle kterého daný dataset „rozdělíme“ na jednotlivé vektorové dlaždice.
 
 %------------------------------------------------------------------------
@@ -151,11 +178,13 @@ Abychom mohli jakoukoli mapu převést na vektorovou dlaždici, nejprve potřebu
 Pro automatické stažení dat po katastrálních územích je na stránkách \href{http://services.cuzk.cz/shp/ku/QGIS-plugin/QGIS_verze-3.x/}{Services ČÚZK} k dispozici zásuvný modul pro hromadné stahování dat KM ve formátu .shp. V Oracle databázi ISKN byl nejprve proveden jednoduchý výběr několika různě velký skupin k. ú. a jejich export do textových souborů. Po zadání připraveného seznamu byly staženy shapefily rozčleněné do složek podle kódu k. ú. Nakonec byly staženy shapefily pro tři různě velké skupiny dat:  pro obec Boskovice (52 MB), pro okres Benešov (1 GB, 271 k. ú.) a pro celý liberecký kraj (přes 2 GB, 508 k. ú.). Nejprve však bylo pracováno pouze s nejmenší množinou dat, s pěti katastrálními územími 600822, 608327, 608475, 608483, 785598 spadajícími pod obec Boskovice. 
 
 \subsection{Import shapefilů do PostGIS databáze}
+Import shapefilů do PostGISu byl naprogramován automatizovaně v prostředí Windows Powershell (zkráceně PS). Jelikož jsou shapefily různých datových typů a i jejich import musí proběhnout do různých tabulek v databázi, byl sestaven multidimenzionální řetězec. Všechny složky jsou pak procházeny pomocí for cyklu a data nahrány do databáze přes utilitu \textbf{ogr2ogr}.
 
-Import shapefilů do PostGISu byl naprogramován automatizovaně v prostředí Windows Powershell (zkráceně PS). Jelikož jsou shapefily různých datových typů a i jejich import musí proběhnout do různých tabulek v databázi, byl sestaven multidimenzionální řetězec. Všechny složky jsou pak procházeny pomocí for cyklu a data nahrány do databáze přes utilitu \textbf{ogr2ogr}. \\
-\indent Při importu bylo řešeno několik problémů. Aby bylo možné ogr2ogr volat relativně, bylo nutné do proměnných prostředí PATH doplnit cestu ke zdrojovému adresáři softwaru QGIS a cestu ke zrojovému adresáři knihovny PROJ. Důležité je zdůraznit spuštění PS jako administrátor, jinak prostředí systémové proměnné ignoruje. \\
-\indent Další problém, který záhy nastal, byl problém s kódováním shapefilů. V případě těchto dat bylo nutné použít pro import do databáze jiné kódování, než je UTF8 a to LATIN1. Toto kódování bylo nastaveno přímo v PS do proměnné prostředí PGCLIENTENCODING. \\
-\indent Do tabulek bylo přidáváno a nad každou tabulkou byl vytvořen prostorový index. Byl zaznamenám případ, kdy nějaký řádek v datech není datového typu, který má reprezentovat, i přesto že ostatní řádky v shapefilu tento datový typ splňují. Vzhledem k tomu, že to bylo zaznamenáno pouze u pár případů a v této práci nejde ani tak o kompetnost dat, jako spíš o jejich strukturu, takové případy nebyly dále zkoumány. Příkaz ogr2ogr pro import dat byl vytvořen s následující strukturou (proměnné jsou označeny \$):
+Při importu bylo řešeno několik problémů. Aby bylo možné ogr2ogr volat relativně, bylo nutné do proměnných prostředí PATH doplnit cestu ke zdrojovému adresáři softwaru QGIS a cestu ke zrojovému adresáři knihovny PROJ. Důležité je zdůraznit spuštění PS jako administrátor, jinak prostředí systémové proměnné ignoruje.
+
+Další problém, který záhy nastal, byl problém s kódováním shapefilů. V případě těchto dat bylo nutné použít pro import do databáze jiné kódování, než je UTF8 a to LATIN1. Toto kódování bylo nastaveno přímo v PS do proměnné prostředí PGCLIENTENCODING.
+
+Do tabulek bylo přidáváno a nad každou tabulkou byl vytvořen prostorový index. Byl zaznamenám případ, kdy nějaký řádek v datech není datového typu, který má reprezentovat, i přesto že ostatní řádky v shapefilu tento datový typ splňují. Vzhledem k tomu, že to bylo zaznamenáno pouze u pár případů a v této práci nejde ani tak o kompetnost dat, jako spíš o jejich strukturu, takové případy nebyly dále zkoumány. Příkaz ogr2ogr pro import dat byl vytvořen s následující strukturou (proměnné jsou označeny \$):
 
 \begin{lstlisting}
 ogr2ogr -append -f PostgreSQL PG:"dbname='pgis_uzpr' 
@@ -165,24 +194,29 @@ host= 'geo102.fsv.cvut.cz'" -a_srs $sour_system $dir
 -lco SPATIAL_INDEX=GIST -nln "uzpr20_a.$tabulka"
 \end{lstlisting}
 
-V databázi bylo tedy celkem vytvořeno 21 tabulek (podle názvů shapefilů), do kterých byla naimportována data ze všech katastrálních území. Data je možné si zobrazit v QGISu.\\
+V databázi bylo tedy celkem vytvořeno 21 tabulek (podle názvů shapefilů), do kterých byla naimportována data ze všech katastrálních území. Data je možné si zobrazit v QGISu.
 
-Obrázky dat v QGISu
+\begin{center}
+	\includegraphics[width=15cm]{./img/qgis_data.png}
+	\captionof{figure}{Zobrazení dat v programu QGIS, Web Mercator}
+\end{center}
+
+\begin{center}
+	\includegraphics[width=12cm]{./img/qgis_spravce_db_ku.png}
+	\captionof{figure}{Správce DB QGIS, ukázka dat}
+\end{center}
 
 \subsection{Export dat z formátu shapefile do formátu geojson}
 
 Pomocí skriptu v Power shellu byly *.shp soubory převedeny na *.geojson soubory, ze kterých se následně tvoří vektorové dlaždice utilitou \textbf{tippecanoe}.
 
-Zároveň zde byl změněn souřadnicový systém dat z WGS84 na Web Mercator s kódem EPSG:3857.
-
+\vspace{0.5cm}
 Při práci nastalo několik problémů, které bylo potřeba řešit.
 \begin{itemize}
 	
 	\item Povolení spouštění skriptů: set-executionpolicy remotesigned
 	
 	\item Nastavení systémové proměnné GDAL\_DATA tak, aby ukazovala na adresář se souřadnicovými systémy
-	
-	\item Změna cílového souřadnicového systému na Web Mercator -- EPSG:3857
 	
 \end{itemize}
 
@@ -194,7 +228,7 @@ Cílem této práce je tvorba vektorových dlaždic s různým zadáním paramet
 
 Podporovaný souřadnicový systém vstupních dat je WGS--84 (default) s EPSG kódem 4326 nebo Web Mercator EPSG:3857. Pro druhou variantu je potřeba pomocí vstupního parametru -s upřesnit, že jde o vstupní data ve formátu Web Mercator.
 
-Výsledná souborová databáze ve formátu mbtile je v souřadnicovém systému Web Mercator.
+Výsledná souborová databáze ve formátu MBTile je v souřadnicovém systému Web Mercator(EPSG:3857).
 
 \vspace{0.5cm}
 Dlaždice byly vytvořeny příkazem:
@@ -207,7 +241,7 @@ tippecanoe -o ./scratch/tiles.mbtiles -zg -pk -pC -pS -pt -f
 
 \vspace{0.5cm}
 Význam jednotlivých parametrů:
-\begin{lstlisting}
+\begin{lstlisting} //nejde pouzit hacky a carky
 
 -o Zapsat nove dlazdice do specifikovaneho .mbtiles souboru
 
@@ -217,36 +251,74 @@ aby bylo mozne dostatecne rozlisit prvky i jejich detaily
 -pk Bez omezeni velikosti na 500KB
 
 -pC Nekomprimovat vectorova data ve formatu PBF.
-Chyba "Unimplemented type 3" je nejspis zpusobena komprimovanymi dlazdicemi
+Chyba "Unimplemented type 3" je nejspis zpusobena
+ komprimovanymi dlazdicemi
 
--pS Negeneralizovat linie a polygony pri max zoom(pro mensi zoom zjednodusuje)
+-pS Negeneralizovat linie a polygony pri
+ max zoom(pro mensi zoom zjednodusuje)
 
 -f Odstrani vystup.mbtiles pokud jiz existuje
 \end{lstlisting}
 
 
 \subsection{Vybalení vektorových dlaždic}
-Ze souborové databáze ve formátu mbtile se vytvoří struktura malých vektorových dlaždic ve formátu PBF, které si klient načítá. Nemusí tedy stahovat ze serveru do paměti celou databázi mbtile, která může být velmi velká. Posílá dotazy jen na menší soubory pbf, které jsou ve struktuře x, y, z.
+Pro rozbalení vektorových dlaždic vytvořeným utilitou tippecanoe byla použita utilita \textbf{mbutil}. Tento pomocný program exportuje dlaždice z formátu \mbox{MBTiles}. 
+
+Ze souborové databáze ve formátu MBTile se vytvoří struktura malých vektorových dlaždic ve formátu PBF, které si klient načítá. Nemusí tedy stahovat ze serveru do paměti celou databázi mbtile, která může být velmi velká. Posílá dotazy jen na menší soubory pbf, které jsou ve struktuře \mbox{x, y, z}.
+
+Použitý příkaz pro rozbalení:
+
+\begin{lstlisting}
+
+mb-util ./scratch/tiles.mbtiles ./tiles --image_format=pbf
+
+\end{lstlisting}
 
 \subsection{Vykreslení vektorových dlaždic}
+Pro účel práce nám bylo umožněno náhrávat data na server katedry geomatiky \textbf{gislab2} do složky barrel(\url{http://gislab2.fsv.cvut.cz/barrel/}). Zde jsme pro práci vytvořili adresář kettner. K zobrazení vektorových dlaždic na webu bylo otestováno několik knihoven.
 
 \subsubsection{Leaflet}
-Umožňuje zobrazit pouze rastrová data.
+V základní verzi umožňuje zobrazit pouze rastrová data. Pro zobrazení vyktorových dlaždic jsou potřeba další pluginy - seznam \href{https://leafletjs.com/plugins.html#vector-tiles}{zde}.
 
-\subsubsection{Leaflet Vector Grid}
+\begin{itemize}
+	\item \textbf{Leaflet.MapboxVectorTile}
+	
+	Starší rozšíření, ketré už není dál vyvíjené, nepodporuje novější verze Leafletu, jen pro Leaflet verze 0.7.x. Nebylo testováno.
+	
+	\item \textbf{Hoverboard}
+	
+	Stejně jako Leaflet.MapboxVectorTile je kompatibilní pouze s Leaflet verze 0.7.x. Nebylo testováno
+	
+	\item \textbf{geojson-vt}
+	
+	Pro tvorbu dlaždic z formátu GeoJSON přímo na klientovi. Toto řešení jsme neuvažovali. Netestováno.
+	
+	\item \textbf{Leaflet.VectorGrid}
+	
+	Zobrazuje gridová vektorová data také v pfb formátu, ale při testování se nepodařilo rozběhnout.
+	
+	\item \textbf{Leaflet.VectorTileLayer}
+	
+	Velmi podobné Leaflet.VectorGrid, hlavním rozdílem je možnost vytvářet styly pro vykreslování. Na testování této možnosti nedošlo.
+	
+\end{itemize}
 
-%Nepovedlo se. Není mi jasné pomocí čeho chceme dlaždice vykreslit. Dlaždice jsem nahrál na MapTailer, kde se krásně zobrazily, ale s free účtem to jde jen jednou.
 
-%Dál jsem zkoušel https://gitlab.com/IvanSanchez/Leaflet.TileLayer.MBTiles, ale ani zde jsem nepochodil. Zobrazuje sice vektorové dlaždice, ale ve formátu png.
+\subsubsection{Mapbox GL}
+Pomocí knihovny Mapbox GL se nám podařilo data zobrazit.
 
-%Použít JS knihovnu jak doporučoval Honza se mi taky nepovedlo. Nechápu jak funguje a co je potřeba změnit.
-
+\begin{center}
+	\includegraphics[width=12cm]{./img/mapboxGL_ukazka_dat.png}
+	\captionof{figure}{Ukázka dat zobrazených knihovnou Mapbox GL}
+\end{center}
 
 
 %-------------------------------------------------------------------------
 \clearpage
-\section{Záver, možné a neriešené problémy}
-Výsledkom práce je ...
+\section{Závěr}
+Výsledkem práce je funkční zobrazení vektorových dlaždic alespoň katastrálního území číslo 608483 spadající pod obec Boskovice. Zobrazena je pouze vrstva \mbox{HRANICE\_PARCEL\_L}. Mapové okno je přístupné na adrese \url{http://gislab2.fsv.cvut.cz/barrel/kettner/02_MapboxGL/}.
+
+
 
 \newpage
 %-------------------------------------------------------------------------
